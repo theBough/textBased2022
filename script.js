@@ -1,4 +1,5 @@
 var enterBtn = document.getElementById("myText");
+var output = document.getElementById("output");
 
 enterBtn.addEventListener("keyup", function(event)
   {
@@ -10,5 +11,6 @@ enterBtn.addEventListener("keyup", function(event)
 
 function promptTheUser(){
   var input = document.getElementById("myText").value;
-  document.getElementById("output").innerHTML += ">>" + input + "</br>"
+ output.innerHTML += ">>" + input + "</br>"
+  output.scrollTop = output.scrollHeight
 }
