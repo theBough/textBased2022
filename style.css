@@ -6,4 +6,5 @@ html, body {
 #output{
   overflow: auto;
   height: 400px;
+  width: 300px
 }
