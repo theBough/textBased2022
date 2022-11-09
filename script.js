@@ -1,6 +1,9 @@
 var enterBtn = document.getElementById("myText");
 var output = document.getElementById("output");
 var goBool = false;
+//these two values should put my player in the Foyer
+var activeRow = 0;
+var activeColumn = 1;
 
 enterBtn.addEventListener("keyup", function(event)
   {
@@ -36,5 +39,9 @@ function promptTheUser(input){
   output.scrollTop = output.scrollHeight
 }//end promptTheUser
 function resolveDirection(input){
-  
+  switch(input){
+    case "e":
+      activeColumn -= 1;
+    break
+  }
 }
