@@ -1,6 +1,3 @@
-//Please customize the room names and description to 
-//suit your game.
-
 var rooms = [];
 function loadRooms(){
   rooms = [
