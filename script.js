@@ -15,6 +15,7 @@ enterBtn.addEventListener("keyup", function(event)
 function control(){
   //check to see if any commands in the game need to be resolved
   var input = document.getElementById("myText").value;
+  document.getElementById("myText").value = ""
   if(goBool){
     resolveDirection(input);
   }else{
@@ -29,6 +30,7 @@ function promptTheUser(input){
   switch(input){
       case"g":
         output.innerHTML += "What direction would you like to go?</br><small>(e-East s-South w-West n-North)</br>"
+      goBool = true
       break
       case"m":
          output.innerHTML += "Here is a map</br>"
@@ -42,6 +44,12 @@ function resolveDirection(input){
   switch(input){
     case "e":
       activeColumn -= 1;
+      
     break
-  }
+      case"w":
+      activeColumn += 1;
+    break
+  }//end switch
+  output.innerHTML += rooms[activeRow][activeColumn];
+  goBool = false;
 }
