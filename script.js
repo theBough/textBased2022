@@ -44,10 +44,15 @@ function resolveDirection(input){
   switch(input){
     case "e":
       activeColumn -= 1;
-      
     break
-      case"w":
+    case"w":
       activeColumn += 1;
+    break
+    case "n":
+      activeRow -= 1;
+    break
+    case"s":
+      activeRow += 1;
     break
   }//end switch
   output.innerHTML += rooms[activeRow][activeColumn];
