@@ -61,3 +61,15 @@ function resolveDirection(input){
   output.innerHTML += rooms[activeRow][activeColumn];
   goBool = false;
 }
+function resolveInspect(input){
+  switch(input){
+      //for every object in your game you need a 'case' and a matching 'break'
+    case "sword":
+      output.innerHTML += "You notice a nice sword, you pick it up and add it to your inventory</br>";
+    break;
+    default:
+      output.innerHTML += "Sorry I Don't recognize that item</br>";
+  }//end switch
+  inspectBool = false;
+  
+}
