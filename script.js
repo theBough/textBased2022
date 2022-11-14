@@ -1,6 +1,7 @@
 var enterBtn = document.getElementById("myText");
 var output = document.getElementById("output");
 var goBool = false;
+var inspectBool = false;
 //these two values should put my player in the Foyer
 var activeRow = 0;
 var activeColumn = 1;
@@ -18,6 +19,8 @@ function control(){
   document.getElementById("myText").value = ""
   if(goBool){
     resolveDirection(input);
+  }else if(inspectBool){
+    resolveInspect(input);
   }else{
     promptTheUser(input)
   }
@@ -43,10 +46,10 @@ function promptTheUser(input){
 function resolveDirection(input){
   switch(input){
     case "e":
-      activeColumn -= 1;
+      activeColumn += 1;
     break
     case"w":
-      activeColumn += 1;
+      activeColumn -= 1;
     break
     case "n":
       activeRow -= 1;
