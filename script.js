@@ -38,6 +38,10 @@ function promptTheUser(input){
       case"m":
          output.innerHTML += "Here is a map</br>"
       break
+      case"i":
+        output.innerHTML += "What would you like to inspect?<br>"
+        inspectBool = true;
+        break
     default:
       output.innerHTML += "I don't recognize that command</br>"
   }//end switch
