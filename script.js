@@ -5,6 +5,7 @@ var inspectBool = false;
 //these two values should put my player in the Foyer
 var activeRow = 0;
 var activeColumn = 1;
+var inventory = ["You have the follow:<br>"];
 
 enterBtn.addEventListener("keyup", function(event)
   {
@@ -26,7 +27,6 @@ function control(){
   }
   
 }//
-
 function promptTheUser(input){
   
  output.innerHTML += ">>" + input + "</br>"
@@ -42,6 +42,11 @@ function promptTheUser(input){
         output.innerHTML += "What would you like to inspect?<br>"
         inspectBool = true;
         break
+      case"c":
+        for(i=0 ; i<inventory.length ; i++){
+          output.innerHTML += inventory[i]
+        }//end for loop
+      break
     default:
       output.innerHTML += "I don't recognize that command</br>"
   }//end switch
@@ -70,6 +75,7 @@ function resolveInspect(input){
       //for every object in your game you need a 'case' and a matching 'break'
     case "sword":
       output.innerHTML += "You notice a nice sword, you pick it up and add it to your inventory</br>";
+      inventory.push("Sword<br>")
     break;
     default:
       output.innerHTML += "Sorry I Don't recognize that item</br>";
