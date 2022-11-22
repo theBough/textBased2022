@@ -2,9 +2,13 @@ html, body {
   height: 100%;
   width: 100%;
 }
-
+@font-face{
+  font-family:Corbin;
+  src:url('varsity_regular.ttf');
+}
 #output{
   overflow: auto;
-  height: 400px;
-  width: 300px
+  height: 300px;
+  width: 300px;
+  font-family:Corbin;
 }
