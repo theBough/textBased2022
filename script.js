@@ -18,7 +18,7 @@ function control(){
   //check to see if any commands in the game need to be resolved
   var input = document.getElementById("myText").value;
   document.getElementById("myText").value = ""
-  if(goBool){
+  if(goBool && roomRestrictions(input)){
     resolveDirection(input);
   }else if(inspectBool){
     resolveInspect(input);
@@ -26,14 +26,14 @@ function control(){
     promptTheUser(input)
   }
   
-}//
+}// 
 function promptTheUser(input){
   
  output.innerHTML += ">>" + input + "</br>"
   switch(input){
       case"g":
         output.innerHTML += "What direction would you like to go?</br><small>(e-East s-South w-West n-North)</br>"
-      goBool = true
+        goBool = true
       break
       case"m":
          output.innerHTML += "Here is a map</br>"
@@ -52,6 +52,23 @@ function promptTheUser(input){
   }//end switch
   output.scrollTop = output.scrollHeight
 }//end promptTheUser
+function roomRestrictions(input){
+  /*This function will a recieve a direction letter
+  of either n,e,s,w if we need restrict a room 
+  we will do it here.
+  Add an if-Block for each restriction you want.
+  */
+  if(rooms[activeRow][activeColumn].name == "Foyer" && input =="e"){
+    /*this means they are trying to go East from the Foyer
+    I don't want them to be able to do this.
+    */
+    output.innerHTML += "<br> Sorry the door is locked.<br>";
+    output.scrollTop = output.scrollHeight
+    goBool  =false;  
+    return false;
+  }
+  return true;
+}//
 function resolveDirection(input){
   switch(input){
     case "e":
@@ -67,7 +84,7 @@ function resolveDirection(input){
       activeRow += 1;
     break
   }//end switch
-  output.innerHTML += rooms[activeRow][activeColumn];
+  output.innerHTML += rooms[activeRow][activeColumn].description;
   goBool = false;
 }
 function resolveInspect(input){
